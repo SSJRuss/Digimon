@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+  <meta name="theme-color" content="#111827"/>
+  <link rel="manifest" href="manifest.json">
+  <title>DigiFarm (Prototype)</title>
+  <style>
+    @font-face { font-family: 'PressStart2P'; src: local('PressStart2P'); }
+    :root{
+      --bg:#0b0f19; --panel:#111827; --accent:#22d3ee; --accent2:#a78bfa; --text:#e5e7eb; --muted:#9ca3af; --tile:#1f2937; --tile2:#374151;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";background:linear-gradient(180deg,var(--bg),#0a0a0a);color:var(--text);}
+    header{position:sticky;top:0;z-index:5;background:rgba(17,24,39,.8);backdrop-filter:blur(8px);padding:.6rem .8rem;border-bottom:1px solid #222}
+    header .row{display:flex;align-items:center;gap:.6rem}
+    .title{font-weight:800;letter-spacing:.5px}
+    .pill{padding:.25rem .5rem;border:1px solid var(--accent);border-radius:999px;font-size:.75rem}
+    .container{padding:.6rem;display:grid;gap:.6rem}
+    .panel{background:var(--panel);border:1px solid #222;border-radius:14px;padding:.6rem}
+    .flex{display:flex;gap:.6rem;align-items:center}
+    .grid{display:grid;gap:2px;touch-action:manipulation}
+    .grid .cell{width:calc((100vw - 1.2rem - 2px*11)/12); /* responsive for 12 cols */
+      max-width:56px; aspect-ratio:1/1; background:var(--tile); border:1px dashed #2b3443; border-radius:6px; position:relative; overflow:hidden}
+    .grid .cell:nth-child(odd){background:var(--tile2)}
+    .cell .spr{position:absolute;inset:0;display:grid;place-items:center;font-size:.7rem}
+    .actions{display:flex;gap:.4rem;flex-wrap:wrap}
+    button{appearance:none;border:1px solid #2b3443;background:#0f172a;color:var(--text);padding:.55rem .7rem;border-radius:10px;font-weight:600}
+    button.primary{border-color:var(--accent);box-shadow:0 0 0 1px inset var(--accent);}
+    button:active{transform:translateY(1px)}
+    .catalog{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;max-height:40vh;overflow:auto}
+    .card{border:1px solid #2b3443;background:#0b1220;border-radius:12px;padding:.5rem}
+    .card .spr{height:54px;border-radius:8px;display:grid;place-items:center;background:#0f172a;margin-bottom:.4rem}
+    .muted{color:var(--muted);font-size:.8rem}
+    .row{display:flex;justify-content:space-between;align-items:center}
+    .toast{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);background:#0b1220;border:1px solid #2b3443;padding:.5rem .7rem;border-radius:10px;display:none}
+    .install{position:fixed;right:10px;bottom:10px}
+    .hidden{display:none}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="row">
+      <div class="title">DigiFarm (Prototype)</div>
+      <div class="pill">Offline-ready</div>
+      <div class="pill" id="dayCounter">Day 1</div>
+      <div style="margin-left:auto" class="flex">
+        <div class="pill" id="bits">Bits: 0</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="panel">
+      <div class="row">
+        <div><strong>Farm</strong> <span class="muted">— Tap a tile to place or interact</span></div>
+        <div class="actions">
+          <button class="primary" id="advanceDay">Advance Day</button>
+          <button id="saveBtn">Save</button>
+          <button id="resetBtn">Reset</button>
+          <button id="installBtn" class="install hidden">Install</button>
+        </div>
+      </div>
+      <div id="farm" class="grid" style="grid-template-columns:repeat(12,1fr)"></div>
+    </div>
+
+    <div class="panel">
+      <div class="row">
+        <strong>Catalog</strong>
+        <div class="muted">Tap one, then tap farm to place (cost 10 Bits)</div>
+      </div>
+      <div id="catalog" class="catalog"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

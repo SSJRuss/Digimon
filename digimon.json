@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Agumon",
+    "stage": "Rookie",
+    "type": "Vaccine"
+  },
+  {
+    "id": 2,
+    "name": "Gabumon",
+    "stage": "Rookie",
+    "type": "Data"
+  },
+  {
+    "id": 3,
+    "name": "Biyomon",
+    "stage": "Rookie",
+    "type": "Vaccine"
+  },
+  {
+    "id": 4,
+    "name": "Tentomon",
+    "stage": "Rookie",
+    "type": "Vaccine"
+  },
+  {
+    "id": 5,
+    "name": "Palmon",
+    "stage": "Rookie",
+    "type": "Data"
+  },
+  {
+    "id": 6,
+    "name": "Gomamon",
+    "stage": "Rookie",
+    "type": "Vaccine"
+  },
+  {
+    "id": 7,
+    "name": "Patamon",
+    "stage": "Rookie",
+    "type": "Data"
+  },
+  {
+    "id": 8,
+    "name": "Gatomon",
+    "stage": "Champion",
+    "type": "Vaccine"
+  },
+  {
+    "id": 9,
+    "name": "Veemon",
+    "stage": "Rookie",
+    "type": "Free"
+  },
+  {
+    "id": 10,
+    "name": "Guilmon",
+    "stage": "Rookie",
+    "type": "Virus"
+  }
+]

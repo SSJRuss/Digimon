@@ -1,0 +1,9 @@
+{
+  "name": "DigiFarm (Prototype)",
+  "short_name": "DigiFarm",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0b0f19",
+  "theme_color": "#111827",
+  "icons": []
+}
